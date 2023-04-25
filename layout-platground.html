@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Playground</title>
+  <style>
+    .playground {
+      padding: 0;
+      margin: 0;
+      border: 1px solid #666;
+      width: 100%;
+      background-color: #EEEEEE;
+      min-height: 300px;
+      position: relative;
+    }
+    .playground > body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  
+  <h1>Layout with Flexbox</h1>
+  <p>create css classes for building layout/UI</p>
+  <p style="font-weight: bold;">DO NOT CHANGE A HTML STRUCTURE</p>
+  
+  <h2>Vertical Menu</h2>
+  <h3>example</h3>
+  <img src="./images/layouts/vertical-menu.png">
+  <br>
+  <h3>playground</h3>
+  <div class="playground">
+    <style>
+        .menu-item{
+            text-align: center;
+            border-bottom: 1px solid black;
+            padding: 2px;
+            background-color: #ffc3f1;
+        }
+
+        .menu-container{
+            border: 1px solid black;
+            border-bottom: unset;
+            width: 80px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+    </style>
+
+    <div class="menu-container">
+      <div class="menu-item">First Menu</div>
+      <div class="menu-item">Menu 2</div>
+      <div class="menu-item">Menu 3</div>
+      <div class="menu-item">Menu 4</div>
+      <div class="menu-item">Menu 5</div>
+      <div class="menu-item">Last Menu</div>
+    </div>
+  </div>
+
+  <h2>Header</h2>
+  <h3>example</h3>
+  <img src="./images/layouts/header.png">
+  <br>
+  <h3>playground</h3>
+  <div class="playground">
+    <style>
+        .header-container{
+            background-color: #ffc3f1;
+            width:50%;
+            height:50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .header-container img{
+            width:20px
+        }
+
+
+    </style>
+
+    <div class="header-container">
+      <div class="header-content-left"><img src="https://www.svgrepo.com/show/511451/arrow-right-in-388.svg"></div>
+      <div class="header-content">Header</div>
+      <div class="header-content-right"><img src="https://www.svgrepo.com/show/510788/add-to-queue.svg"></div>
+    </div>
+  </div>
+
+  <h2>Navigation Tab</h2>
+  <h3>example</h3>
+  <img src="./images/layouts/navigation-tab.png">
+  <br>
+  <h3>playground</h3>
+  <div class="playground">
+    <style>
+        .navigation-item-icon img{
+            width: 20px;
+        }
+
+        .navigation-container{
+            margin: 20px;
+            width:50%;
+            height: 90px;
+            background-color: #ffc3f1;
+            border: 3px dashed #cd7cba;
+            display: flex;
+            justify-content: space-evenly; /*หากเป็น ปุ่ม จะกดไม่ติด ควรใช้ psdding*/
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+        }
+    </style>
+
+    <div class="navigation-container">
+      <div class="navigation-item">
+        <div class="navigation-item-icon"><img src="https://cdn-icons-png.flaticon.com/512/109/109613.png"></div>
+        <div class="navigation-item-label">
+          First Menu
+        </div>
+      </div>
+      <div class="navigation-item">
+        <div class="navigation-item-icon"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></div>
+        <div class="navigation-item-label">
+          Second Menu
+        </div>
+      </div>
+      <div class="navigation-item">
+        <div class="navigation-item-icon"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524762.png"></div>
+        <div class="navigation-item-label">
+          Third Menu
+        </div>
+      </div>
+      <div class="navigation-item">
+        <div class="navigation-item-icon"><img src="https://cdn-icons-png.flaticon.com/512/3892/3892597.png"></div>
+        <div class="navigation-item-label">
+          Fourth Menu
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Card</h2>
+  <h3>example</h3>
+  <img src="./images/layouts/card.png">
+  <br>
+  <h3>playground</h3>
+  <div class="playground">
+    <style>
+
+    </style>
+
+    <div>
+      <div class="card-list-container">
+        <div class="card-container">
+          <div class="card-content">
+            <div class="card-content-image-section">
+              <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F06%2F26%2Ftiny-white-kitten-873941684-2000.jpg">
+            </div>
+            <div class="card-content-detail-section">
+              <div class="product-name">
+                Elite Obsidian
+              </div>
+              <div class="product-description">
+                Awesome product from Mars made by hand of Ultraman
+              </div>
+              <div class="product-price">
+                1,000
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      ... duplicated card here
+    </div>
+  </div>
+
+  <h2>Sidebar</h2>
+  <h3>example</h3>
+  <img src="./images/layouts/sidebar.png">
+  <br>
+  <h3>playground</h3>
+  <div class="playground">
+    <style>
+
+    </style>
+
+    <div class="sidebar-container">
+      <div class="sidebar-profile-section">
+        <div>I'm Header</div>
+      </div>
+      <div class="sidebar-menu-section">
+        <div class="sidebar-menu-item"> Menu 1</div>
+        <div class="sidebar-menu-item"> Menu 2</div>
+        <div class="sidebar-menu-item"> Menu 3</div>
+      </div>
+      <div class="sidebar-footer-section">
+        <div>
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</body>
+</html>
