@@ -327,11 +327,17 @@
   <h3>playground</h3>
   <div class="playground">
     <style>
+
       .sidebar-container{
+        display: flex;
+        flex-direction: column;
         background-color: #ffdceb;
         border: 3px solid palevioletred;
-        width: 250px;
-        height: 300px;
+        width: 300px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
       }
 
       .sidebar-profile-section{
@@ -345,18 +351,21 @@
       .sidebar-menu-section{
         padding-left: 10px;
         color: #c94587;
+        flex-grow: 1;
       }
 
       .sidebar-menu-item{
-        margin-top: 10px;
+        padding-top: 10px;
       }
+
+      
 
       .sidebar-footer-section{
         padding-left: 10px;
         padding-top: 5px;
-        margin-top: 58%;
         color: #ab2267;
         border-top: 3px solid palevioletred;
+        bottom: 0;
       }
 
     </style>
