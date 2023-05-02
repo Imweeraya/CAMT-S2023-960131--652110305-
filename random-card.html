@@ -7,54 +7,6 @@
         background-color: rgb(247, 172, 214);
     }
 
-</style>
-
-
-
-
-    
-<script>
-
-    // card number and type
-    var CARD_TYPE = ['♣', '♦', '♥', '♠']
-    var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
-
-    // random function
-    // max: number > 0
-    // return [0, max -1]
-    function random(max) {
-    return parseInt(Math.random() * max) % max
-    }
-
-    // how to use random function
-    var cardTypeOne = CARD_TYPE[random(CARD_TYPE.length)]
-    var cardNumberOne = CARD_NUMBER[random(CARD_NUMBER.length)]
-    console.log(cardTypeOne, cardNumberOne)
-    document.getElementById("onetype").innerHTML = cardTypeOne;
-    document.getElementById("onenum").innerHTML = cardNumberOne;
-
-    var cardTypeTwo = CARD_TYPE[random(CARD_TYPE.length)]
-    var cardNumberTwo = CARD_NUMBER[random(CARD_NUMBER.length)]
-    console.log(cardTypeTwo, cardNumberTwo)
-    document.getElementById("twotype").innerHTML = cardTypeTwo;
-
-    var cardTypeThree = CARD_TYPE[random(CARD_TYPE.length)]
-    var cardNumberThree = CARD_NUMBER[random(CARD_NUMBER.length)]
-    console.log(cardTypeThree, cardNumberThree)
-
-    var cardTypeFour = CARD_TYPE[random(CARD_TYPE.length)]
-    var cardNumberFour = CARD_NUMBER[random(CARD_NUMBER.length)]
-    console.log(cardTypeFour, cardNumberFour)
-
-    
-
-    /*if(cardType == '♦' || cardType == '♥'){
-        document.getElementById(cardType).style.color = "#EB5882 ";
-    }*/
-</script>
-
-
-<style>
     .card-list-container{
         width: 100%;
         display: flex;
@@ -75,7 +27,7 @@
       /*.card-content{
         width:100%;
         height: 100%;
-      }**/
+      }*/
     
     .card-type{
         padding-right: 20px;
@@ -170,13 +122,75 @@
 
 </div>
 
-
 <script>
+
+    // card number and type
+    var CARD_TYPE = ['♣', '♦', '♥', '♠']
+    var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
+
+    // random function
+    // max: number > 0
+    // return [0, max -1]
+    function random(max) {
+    return parseInt(Math.random() * max) % max
+    }
+
+    // how to use random function
+    var cardTypeOne = CARD_TYPE[random(CARD_TYPE.length)]
+    var cardNumberOne = CARD_NUMBER[random(CARD_NUMBER.length)]
+    console.log("Card 1 : ",cardTypeOne, cardNumberOne)
+    document.getElementById("onetype").innerHTML = cardTypeOne;
+    document.getElementById("onenum").innerHTML = cardNumberOne;
+    if(cardTypeOne == '♦'|| cardTypeOne == '♥'){
+        document.getElementById("onetype").style.color = "#EB5882 ";
+        document.getElementById("onenum").style.color = "#EB5882 ";
+    }else{
+        document.getElementById("onetype").style.color = "black";
+        document.getElementById("onenum").style.color = "black";
+    }
+
+    var cardTypeTwo = CARD_TYPE[random(CARD_TYPE.length)]
+    var cardNumberTwo = CARD_NUMBER[random(CARD_NUMBER.length)]
+    console.log("Card 2 : ",cardTypeTwo, cardNumberTwo)
+    document.getElementById("twotype").innerHTML = cardTypeTwo;
+    document.getElementById("twonum").innerHTML = cardNumberTwo;
+    if(cardTypeTwo == '♦'|| cardTypeTwo == '♥'){
+        document.getElementById("twotype").style.color = "#EB5882 ";
+        document.getElementById("twonum").style.color = "#EB5882 ";
+    }else{
+        document.getElementById("twotype").style.color = "black";
+        document.getElementById("twonum").style.color = "black";
+    }
+    
+    var cardTypeThree = CARD_TYPE[random(CARD_TYPE.length)]
+    var cardNumberThree = CARD_NUMBER[random(CARD_NUMBER.length)]
+    if(cardTypeThree == '♦'|| cardTypeThree == '♥'){
+        document.getElementById("threetype").style.color = "#EB5882 ";
+        document.getElementById("threenum").style.color = "#EB5882 ";
+    }else{
+        document.getElementById("threetype").style.color = "black";
+        document.getElementById("threenum").style.color = "black";
+    }
+
+    var cardTypeFour = CARD_TYPE[random(CARD_TYPE.length)]
+    var cardNumberFour = CARD_NUMBER[random(CARD_NUMBER.length)]
+    console.log("Card 4 : ",cardTypeFour, cardNumberFour)
+    document.getElementById("fourtype").innerHTML = cardTypeFour;
+    document.getElementById("fournum").innerHTML = cardNumberFour;
+    if(cardTypeFour == '♦'|| cardTypeFour == '♥'){
+        document.getElementById("fourtype").style.color = "#EB5882 ";
+        document.getElementById("fournum").style.color = "#EB5882 ";
+    }else{
+        document.getElementById("fourtype").style.color = "black";
+        document.getElementById("fournum").style.color = "black";
+    }
+    
+
 
 function randomCard(){
     cardTypeOne = CARD_TYPE[random(CARD_TYPE.length)]
     cardNumberOne = CARD_NUMBER[random(CARD_NUMBER.length)]
-    console.log(cardTypeOne, cardNumberOne)
+    console.log("Card 1 : ",cardTypeOne, cardNumberOne)
     document.getElementById("onetype").innerHTML = cardTypeOne;
     document.getElementById("onenum").innerHTML = cardNumberOne;
     if(cardTypeOne == '♦'|| cardTypeOne == '♥'){
@@ -189,7 +203,7 @@ function randomCard(){
 
     cardTypeTwo = CARD_TYPE[random(CARD_TYPE.length)]
     cardNumberTwo = CARD_NUMBER[random(CARD_NUMBER.length)]
-    console.log(cardTypeTwo, cardNumberTwo)
+    console.log("Card 2 : ",cardTypeTwo, cardNumberTwo)
     document.getElementById("twotype").innerHTML = cardTypeTwo;
     document.getElementById("twonum").innerHTML = cardNumberTwo;
     if(cardTypeTwo == '♦'|| cardTypeTwo == '♥'){
@@ -202,7 +216,7 @@ function randomCard(){
 
     cardTypeThree = CARD_TYPE[random(CARD_TYPE.length)]
     cardNumberThree = CARD_NUMBER[random(CARD_NUMBER.length)]
-    console.log(cardTypeThree, cardNumberThree)
+    console.log("Card 3 : ",cardTypeThree, cardNumberThree)
     document.getElementById("threetype").innerHTML = cardTypeThree;
     document.getElementById("threenum").innerHTML = cardNumberThree;
     if(cardTypeThree == '♦'|| cardTypeThree == '♥'){
@@ -215,7 +229,7 @@ function randomCard(){
 
     cardTypeFour = CARD_TYPE[random(CARD_TYPE.length)]
     cardNumberFour = CARD_NUMBER[random(CARD_NUMBER.length)]
-    console.log(cardTypeFour, cardNumberFour)
+    console.log("Card 4 : ",cardTypeFour, cardNumberFour)
     document.getElementById("fourtype").innerHTML = cardTypeFour;
     document.getElementById("fournum").innerHTML = cardNumberFour;
     if(cardTypeFour == '♦'|| cardTypeFour == '♥'){
