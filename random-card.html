@@ -21,7 +21,7 @@
         background-color: rgb(255, 255, 255);
         margin: 10px;
         border-radius: 20px;
-        border: 5px solid rgb(46, 35, 42);
+        border: 5px solid #1C1C1C ;
       }
     
       /*.card-content{
@@ -69,7 +69,7 @@
 
     <div>
         <div class="card-list-container">
-          <div class="card-container">
+          <div class="card-container" id="card1">
             <div class="card-content">
                 <div class="card-type" >
                     <p id="onetype"> ♣ </p>
@@ -80,7 +80,7 @@
             </div>
           </div>
 
-          <div class="card-container">
+          <div class="card-container" id="card2">
             <div class="card-content">
                 <div class="card-type" >
                     <p id="twotype" > ♣ </p>
@@ -91,7 +91,7 @@
             </div>
           </div>
 
-          <div class="card-container">
+          <div class="card-container" id="card3">
             <div class="card-content">
                 <div class="card-type" >
                     <p id="threetype"> ♣ </p>
@@ -102,8 +102,8 @@
             </div>
           </div>
 
-          <div class="card-container">
-            <div class="card-content">
+          <div class="card-container" id="card4">
+            <div class="card-content" >
                 <div class="card-type" >
                     <p id="fourtype"> ♣ </p>
                 </div>
@@ -135,6 +135,10 @@
     return parseInt(Math.random() * max) % max
     }
 
+    var round = 0;
+
+    console.log("<< Round : " , round ," >>")
+
     // how to use random function
     var cardTypeOne = CARD_TYPE[random(CARD_TYPE.length)]
     var cardNumberOne = CARD_NUMBER[random(CARD_NUMBER.length)]
@@ -144,9 +148,12 @@
     if(cardTypeOne == '♦'|| cardTypeOne == '♥'){
         document.getElementById("onetype").style.color = "#EB5882 ";
         document.getElementById("onenum").style.color = "#EB5882 ";
+        document.getElementById("card1").style.borderColor = "#EB5882";
+
     }else{
         document.getElementById("onetype").style.color = "black";
         document.getElementById("onenum").style.color = "black";
+        document.getElementById("card1").style.borderColor = "black";
     }
 
     var cardTypeTwo = CARD_TYPE[random(CARD_TYPE.length)]
@@ -157,9 +164,11 @@
     if(cardTypeTwo == '♦'|| cardTypeTwo == '♥'){
         document.getElementById("twotype").style.color = "#EB5882 ";
         document.getElementById("twonum").style.color = "#EB5882 ";
+        document.getElementById("card2").style.borderColor = "#EB5882";
     }else{
         document.getElementById("twotype").style.color = "black";
         document.getElementById("twonum").style.color = "black";
+        document.getElementById("card2").style.borderColor = "black";
     }
     
     var cardTypeThree = CARD_TYPE[random(CARD_TYPE.length)]
@@ -167,9 +176,11 @@
     if(cardTypeThree == '♦'|| cardTypeThree == '♥'){
         document.getElementById("threetype").style.color = "#EB5882 ";
         document.getElementById("threenum").style.color = "#EB5882 ";
+        document.getElementById("card3").style.borderColor = "#EB5882";
     }else{
         document.getElementById("threetype").style.color = "black";
         document.getElementById("threenum").style.color = "black";
+        document.getElementById("card3").style.borderColor = "black";
     }
 
     var cardTypeFour = CARD_TYPE[random(CARD_TYPE.length)]
@@ -180,9 +191,11 @@
     if(cardTypeFour == '♦'|| cardTypeFour == '♥'){
         document.getElementById("fourtype").style.color = "#EB5882 ";
         document.getElementById("fournum").style.color = "#EB5882 ";
+        document.getElementById("card4").style.borderColor = "#EB5882";
     }else{
         document.getElementById("fourtype").style.color = "black";
         document.getElementById("fournum").style.color = "black";
+        document.getElementById("card4").style.borderColor = "black";
     }
     
 
@@ -190,6 +203,10 @@
 /* Button Random Function */
 
 function randomCard(){
+
+    round += 1;
+    console.log("<< Round : " , round ," >>")
+    
     cardTypeOne = CARD_TYPE[random(CARD_TYPE.length)]
     cardNumberOne = CARD_NUMBER[random(CARD_NUMBER.length)]
     console.log("Card 1 : ",cardTypeOne, cardNumberOne)
@@ -198,9 +215,11 @@ function randomCard(){
     if(cardTypeOne == '♦'|| cardTypeOne == '♥'){
         document.getElementById("onetype").style.color = "#EB5882 ";
         document.getElementById("onenum").style.color = "#EB5882 ";
+        document.getElementById("card1").style.borderColor = "#EB5882";
     }else{
         document.getElementById("onetype").style.color = "black";
         document.getElementById("onenum").style.color = "black";
+        document.getElementById("card1").style.borderColor = "black";
     }
 
     cardTypeTwo = CARD_TYPE[random(CARD_TYPE.length)]
@@ -211,9 +230,11 @@ function randomCard(){
     if(cardTypeTwo == '♦'|| cardTypeTwo == '♥'){
         document.getElementById("twotype").style.color = "#EB5882 ";
         document.getElementById("twonum").style.color = "#EB5882 ";
+        document.getElementById("card2").style.borderColor = "#EB5882";
     }else{
         document.getElementById("twotype").style.color = "black";
         document.getElementById("twonum").style.color = "black";
+        document.getElementById("card2").style.borderColor = "black";
     }
 
     cardTypeThree = CARD_TYPE[random(CARD_TYPE.length)]
@@ -224,9 +245,11 @@ function randomCard(){
     if(cardTypeThree == '♦'|| cardTypeThree == '♥'){
         document.getElementById("threetype").style.color = "#EB5882 ";
         document.getElementById("threenum").style.color = "#EB5882 ";
+        document.getElementById("card3").style.borderColor = "#EB5882";
     }else{
         document.getElementById("threetype").style.color = "black";
         document.getElementById("threenum").style.color = "black";
+        document.getElementById("card3").style.borderColor = "black";
     }
 
     cardTypeFour = CARD_TYPE[random(CARD_TYPE.length)]
@@ -237,9 +260,11 @@ function randomCard(){
     if(cardTypeFour == '♦'|| cardTypeFour == '♥'){
         document.getElementById("fourtype").style.color = "#EB5882 ";
         document.getElementById("fournum").style.color = "#EB5882 ";
+        document.getElementById("card4").style.borderColor = "#EB5882";
     }else{
         document.getElementById("fourtype").style.color = "black";
         document.getElementById("fournum").style.color = "black";
+        document.getElementById("card4").style.borderColor = "black";
     }
     
 }
