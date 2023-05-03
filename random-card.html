@@ -197,6 +197,9 @@
     
     var cardTypeThree = CARD_TYPE[random(CARD_TYPE.length)]
     var cardNumberThree = CARD_NUMBER[random(CARD_NUMBER.length)]
+    console.log("Card 3 : ",cardTypeThree, cardNumberThree)
+    document.getElementById("threetype").innerHTML = cardTypeThree;
+    document.getElementById("threenum").innerHTML = cardNumberThree;
     if(cardTypeThree == '♦'|| cardTypeThree == '♥'){
         document.getElementById("threetype").style.color = "#EB5882 ";
         document.getElementById("threenum").style.color = "#EB5882 ";
