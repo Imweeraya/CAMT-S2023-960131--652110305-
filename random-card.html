@@ -4,9 +4,18 @@
 <style>
 
     body{
-        /*background-color: rgb(247, 172, 214);*/
+        background-color: rgb(31, 31, 31);
+    } 
+
+    .board{
         background-image: url(https://tipsmake.com/data3/images/cute-background-download-cute-background-here-picture-27-iMlPzMaec.jpg); 
-        background-size: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 25px;
+        border-radius: 20px;
     }
 
     .card-list-container{
@@ -21,15 +30,12 @@
         width: 250px;
         height: 400px;
         background-color: rgb(255, 255, 255);
-        margin: 10px;
+        margin: 20px;
         border-radius: 20px;
         border: 5px solid #1C1C1C ;
+        box-shadow : 10px 10px 3px rgb(54, 54, 54);
       }
     
-      /*.card-content{
-        width:100%;
-        height: 100%;
-      }*/
     
     .card-type{
         padding-right: 20px;
@@ -54,7 +60,7 @@
 
     .random{
         border:unset;
-        margin-top: 90px;
+        margin-top: 50px;
         text-align: center;
         font-size: 20px;
         color: rgb(255, 255, 255);
@@ -82,7 +88,7 @@
 </style>
 <body>
 
-    <div>
+    <div class="board">
         <div class="card-list-container">
           <div class="card-container" id="card1">
             <div class="card-content">
@@ -129,7 +135,7 @@
           </div>
 
         </div>
-    </div>
+    
 
 <div class="button-random">
 
@@ -139,6 +145,7 @@
 
 </div>
 
+</div>
 <script>
 
     // card number and type
