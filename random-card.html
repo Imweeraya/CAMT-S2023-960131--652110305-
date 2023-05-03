@@ -167,7 +167,7 @@
     var cardTypeOne = CARD_TYPE[random(CARD_TYPE.length)]
     var cardNumberOne = CARD_NUMBER[random(CARD_NUMBER.length)]
     console.log("Card 1 : ",cardTypeOne, cardNumberOne)
-    document.getElementById("onetype").innerHTML = cardTypeOne;
+    document.getElementById("onetype").innerHTML = cardTypeOne; /*get id นั้นๆ ถ้าทำเป็น for loop จะง่ายกว่า โดยการใช้ get Class จะนับเป็น array เริ่มตั้งแต่ index 0*/
     document.getElementById("onenum").innerHTML = cardNumberOne;
     if(cardTypeOne == '♦'|| cardTypeOne == '♥'){
         document.getElementById("onetype").style.color = "#EB5882 ";
