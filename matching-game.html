@@ -1,5 +1,135 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+
+    .board{
+        background-color: rgb(223, 119, 150);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        margin: 20px;
+        border-radius: 20px;
+        border: solid 5px rgb(107, 53, 64);
+    }
+
+</style>
+
+<div class="board">
+    <div class="board-content">
+
+      <div class="card-zone">
+
+        <!--<div class="card-container" id="card1">
+            <div class="card-content">
+                <div class="card-type" >
+                    <p> ♣ </p>
+                </div>
+                <div class="card-num" >
+                    <p> A </p>
+                </div>
+            </div>
+          </div> -->
+
+      </div>
+
+
+
+      <style>
+
+        .player-zone{
+            border-left: solid 5px rgb(107, 53, 64);
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: rgb(255, 205, 220);
+            width: 300px;
+            position: absolute;
+            display: flex;
+            flex-direction:column;
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            justify-content: center;
+        }
+
+        
+
+        .player-a{
+            padding: 10px;
+            height: 50%;
+            border-bottom: solid 5px rgb(107, 53, 64);
+        }
+
+        .player-b{
+            padding: 10px;
+            height: 50%;
+        }
+
+      .player-title{
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #ab2267;
+        }
+
+        .player-score{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 60px;
+            
+            font-weight: bold;
+            color: #ab2267;
+            height: 90%;      
+        }
+
+
+      </style>
+      
+      <div class="player-zone">
+
+        <div class="player-a">
+          <div class="player-title">
+            Player A
+          </div>
+          <div class="player-score">
+            0
+          </div>
+        </div>
+
+        <div class="player-b">
+          <div class="player-title">
+            Player B
+          </div>
+          <div class="player-score">
+            0
+          </div>
+        </div>
+        
+      </div>
+
+
+
+    </div>
+
+    <style>
+
+        .footer{
+            position: absolute;
+            bottom: 0;
+        }
+
+    </style>
+
+
+    <div class="footer">
+        <button class="new-game-button">New Game</button>
+    </div>
+
+  </div>
 
 </html>
