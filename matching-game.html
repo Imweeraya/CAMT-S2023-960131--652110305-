@@ -22,16 +22,23 @@
 
       <div class="card-zone">
 
-        <!--<div class="card-container" id="card1">
-            <div class="card-content">
-                <div class="card-type" >
-                    <p> ♣ </p>
-                </div>
-                <div class="card-num" >
-                    <p> A </p>
-                </div>
+        <div class="card">
+            <div class="card-title">
+                ♣
+          </div>
+            <div class="card-body">
+                9
             </div>
-          </div> -->
+        </div>
+
+        <div class="card face-down">
+            <div class="card-title">
+                
+          </div>
+            <div class="card-body">
+                ?
+            </div>
+        </div>
 
       </div>
 
@@ -41,16 +48,15 @@
 
         .player-zone{
             border-left: solid 5px rgb(107, 53, 64);
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
+            border-top-right-radius: 15px;
             background-color: rgb(255, 205, 220);
-            width: 300px;
+            width: 20%;
             position: absolute;
             display: flex;
             flex-direction:column;
             right: 0;
             top: 0;
-            bottom: 0;
+            height: 90%;
 
             justify-content: center;
         }
@@ -118,9 +124,18 @@
 
     <style>
 
-        .footer{
+        .new-game-button{
             position: absolute;
             bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10%;
+
+            background-color: rgb(32, 32, 32);
+            color: #dc94b8;
+            border-radius: 0px 0px 15px 15px ;
+            font-size: large;
+            font-weight: bold;
         }
 
     </style>
