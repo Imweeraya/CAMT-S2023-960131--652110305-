@@ -78,8 +78,8 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 0;
-            right: 0;
+            width: 80%;
+            height: 100%;
             display: flex;
             flex-wrap: wrap;
             justify-content: left;
@@ -123,13 +123,83 @@
 
 </style>
 
+<script>
+        var cardList = [
+            { value: ['♣', 'A'], isFaceDown: true },
+            { value: ['♣', '2'], isFaceDown: false },
+            { value: ['♣', '3'], isFaceDown: true },
+            { value: ['♣', '4'], isFaceDown: false },
+            { value: ['♣', '5'], isFaceDown: true },
+            { value: ['♣', '6'], isFaceDown: true },
+            { value: ['♣', '7'], isFaceDown: true },
+            { value: ['♣', '8'], isFaceDown: false },
+            { value: ['♣', '9'], isFaceDown: true },
+            { value: ['♣', '10'], isFaceDown: true },
+            { value: ['♣', 'J'], isFaceDown: true },
+            { value: ['♣', 'Q'], isFaceDown: true },
+            { value: ['♣', 'K'], isFaceDown: false },
+            { value: ['♥', 'A'], isFaceDown: true },
+            { value: ['♥', '2'], isFaceDown: true },
+            { value: ['♥', '3'], isFaceDown: false },
+            { value: ['♥', '4'], isFaceDown: false },
+            { value: ['♥', '5'], isFaceDown: true },
+            { value: ['♥', '6'], isFaceDown: false },
+            { value: ['♥', '7'], isFaceDown: true },
+            { value: ['♥', '8'], isFaceDown: true },
+            { value: ['♥', '9'], isFaceDown: true },
+            { value: ['♥', '10'], isFaceDown: true },
+            { value: ['♥', 'J'], isFaceDown: true },
+            { value: ['♥', 'Q'], isFaceDown: true },
+            { value: ['♥', 'K'], isFaceDown: false },
+        ]
+
+        function htmlToElem(html) {
+            let temp = document.createElement('template');
+            html = html.trim(); // Never return a space text node as a result
+            temp.innerHTML = html;
+            return temp.content.firstChild;
+        }
+        
+        var remove;
+
+        function renderCardList() {
+            // TODO: define cardZoneElm here
+            
+            
+            const cardZoneElm = document.getElementsByClassName('card-zone');
+            if(remove == 1){
+              cardZoneElm.remove('card-zone');  
+            }
+            
+            // before append any DOM(s), you need to clear all children of cardZoneElm
+            for (var idx=0; idx < cardList.length; idx++) {
+                // TODO:
+                // if isFaceDown is true, create a card component with 'face-down' class
+                if(cardList[idx].isFaceDown === true){
+                   cardElm = htmlToElem(      
+                    '<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>'
+                )
+                }else{
+                    cardElm = htmlToElem(      
+                        `<div class="card"> <div class="card-title"> ${cardList[idx].value[0]} </div> <div class="card-body"> ${cardList[idx].value[1]} </div></div>`
+                    )
+                }
+                
+                cardZoneElm[0].append(cardElm)
+            }
+
+            remove = 1;
+        }
+
+</script>
+
 <div class="board">
     <div class="board-content">
 
 
       <div class="card-zone">
 
-        <div class="card">
+       <!-- <div class="card">
             <div class="card-title">
                 ♣
           </div>
@@ -145,7 +215,7 @@
             <div class="card-body">
                 ?
             </div>
-        </div>
+        </div> -->
 
       </div>
 
@@ -180,7 +250,7 @@
 
 
     <div class="footer">
-        <button class="new-game-button">New Game</button>
+        <button class="new-game-button" onclick="renderCardList()" >New Game</button>
     </div>
 
   </div>
