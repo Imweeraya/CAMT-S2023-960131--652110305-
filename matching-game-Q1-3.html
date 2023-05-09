@@ -127,11 +127,9 @@
 
 </style>
 
-
 <script>
-        var CARD_TYPE = ['♣', '♦', '♥', '♠']
-        var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
-        var CARD_FACEDOWN = [true , false]
+
+        
 
         // random function
         // max: number > 0
@@ -139,24 +137,36 @@
         function random(max) {
         return parseInt(Math.random() * max) % max
         }
+        var CARD_FACEDOWN = [true , false]
 
-        /*var cardList=[]
-
-        var count = 0
-
-        for(let i=0 ; i<CARD_TYPE.length ; i++){
-          for(let j=0 ; j<CARD_NUMBER.length ; j++){
-            cardlist[count].value[0] = CARD_TYPE[i]
-            cardlist[count].value[1] = CARD_NUMBER[j]
-            cardlist[count].isFaceDown = CARD_FACEDOWN[random(CARD_FACEDOWN.length)]
-            count = count+1
-          }
-        }*/
-
-        
-
-        
-
+        var cardList = [
+            { value: ['♣', 'A'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '2'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '3'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '4'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '5'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '6'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '7'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '8'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '9'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', '10'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', 'J'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', 'Q'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♣', 'K'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', 'A'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '2'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '3'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '4'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '5'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '6'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '7'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '8'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '9'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', '10'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', 'J'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', 'Q'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] },
+            { value: ['♥', 'K'], isFaceDown: CARD_FACEDOWN[random(CARD_FACEDOWN.length)] }
+        ]
 
         function htmlToElem(html) {
             let temp = document.createElement('template');
@@ -165,61 +175,54 @@
             return temp.content.firstChild;
         }
         
-        var remove;
+        var remove  = 0   
+
+        
 
         function renderCardList() {
-            // TODO: define cardZoneElm here
-            
-            
-            /*const check=[]*/
+            // TODO: define cardZoneElm here    
+
             const cardZoneElm = document.getElementsByClassName('card-zone');
+
             if(remove == 1){
-              cardZoneElm.remove('card-zone');  
+                cardZoneElm.removeChild(cardZoneElm.lastChild)
             }
+       
             
             // before append any DOM(s), you need to clear all children of cardZoneElm
-            for (var idx=0; idx < 52; idx++) {
-
+            for (var idx=0; idx < cardList.length; idx++) {
                 // TODO:
                 // if isFaceDown is true, create a card component with 'face-down' class
-                if(CARD_FACEDOWN[random(CARD_FACEDOWN.length)] === true){
+                if(cardList[idx].isFaceDown === true){
                    cardElm = htmlToElem(      
                     '<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>'
                 )
                 }else{
 
-                  let type = CARD_TYPE[random(CARD_TYPE.length)]
-                  let num = CARD_NUMBER[random(CARD_NUMBER.length)]
-
-                  /*check.push(type + num)
-                  console.log(check[29])*/
-
-                  if(type  == '♦'|| type == '♥'){
+                    if(cardList[idx].value[0] == '♦'|| cardList[idx].value[0] == '♥'){
                         cardElm = htmlToElem(      
-                        `<div class="card"> <div class="red card-title"> ${type} </div> <div class="red card-body"> ${num} </div></div>`
+                        `<div class="card"> <div class="red card-title"> ${cardList[idx].value[0]} </div> <div class="red card-body"> ${cardList[idx].value[1]} </div></div>`
                     )
                     }
                     else{
                         cardElm = htmlToElem(      
-                        `<div class="card"> <div class="card-title"> ${type} </div> <div class="card-body"> ${num} </div></div>`
+                        `<div class="card"> <div class="card-title"> ${cardList[idx].value[0]} </div> <div class="card-body"> ${cardList[idx].value[1]} </div></div>`
                     )
                     
                     }
-                }
+                    
+                  
+                    
+                }  
                 
                 cardZoneElm[0].append(cardElm)
+ 
             }
-
             remove = 1;
+      
         }
-
-
-        function my_code(){
-        alert(" Alert inside my_code function");
-        }
-
-        window.onload=my_code();
-       
+        
+        
 
 </script>
 
