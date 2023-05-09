@@ -31,16 +31,13 @@
         }
 
         
-
-        .player-a{
+        .player{
             padding: 10px;
             height: 50%;
-            border-bottom: solid 5px rgb(107, 53, 64);
         }
 
-        .player-b{
-            padding: 10px;
-            height: 50%;
+        .player-a{
+            border-bottom: solid 5px rgb(107, 53, 64);
         }
 
       .player-title{
@@ -63,24 +60,72 @@
         }
 
 
-    .new-game-button{
+        .new-game-button{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 10%;
+
+                background-color: rgb(32, 32, 32);
+                color: #dc94b8;
+                border-radius: 0px 0px 15px 15px ;
+                font-size: large;
+                font-weight: bold;       
+            }
+
+        .card-zone{
             position: absolute;
+            top: 0;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 10%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            align-items: start;
+        }
 
-            background-color: rgb(32, 32, 32);
-            color: #dc94b8;
-            border-radius: 0px 0px 15px 15px ;
-            font-size: large;
-            font-weight: bold;
+        .card{
+            width: 80px;
+            height: 120px;
+            background-color: rgb(255, 255, 255);
+            margin: 15px;
+            border-radius: 8px;
+            border: 3px solid #1C1C1C ;
+            box-shadow : 5px 5px 3px rgb(73, 73, 73);
+        }
+
+        .face-down{
+            background-color: #1C1C1C;
+            color: rgb(255, 255, 255);
+        }
+
+        .card-title{
+            position: absolute;
+            padding-right: 20px;
+            font-size: 20px;
+            width: 75px;
+            text-align: right;
+        }
+
+        .card-body{
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            justify-content: center;
+            padding-right: 20px;
+            font-size: 40px;
+            text-align: center;
+            padding-right: 5px;
         }
 
 </style>
 
 <div class="board">
     <div class="board-content">
+
 
       <div class="card-zone">
 
@@ -107,7 +152,7 @@
 
       <div class="player-zone">
 
-        <div class="player-a">
+        <div class="player player-a">
           <div class="player-title">
             Player A
           </div>
@@ -116,7 +161,7 @@
           </div>
         </div>
 
-        <div class="player-b">
+        <div class="player player-b">
           <div class="player-title">
             Player B
           </div>
