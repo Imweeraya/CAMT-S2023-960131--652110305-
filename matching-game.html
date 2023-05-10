@@ -129,34 +129,15 @@
 
 
 <script>
+
+        
         var CARD_TYPE = ['♣', '♦', '♥', '♠']
-        var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
-        var CARD_FACEDOWN = [true , false]
+        var CARD_NUMBER = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+        var CARD_STATUS = [true, false]
 
-        // random function
-        // max: number > 0
-        // return [0, max -1]
         function random(max) {
-        return parseInt(Math.random() * max) % max
+            return parseInt(Math.random() * max) % max
         }
-
-        /*var cardList=[]
-
-        var count = 0
-
-        for(let i=0 ; i<CARD_TYPE.length ; i++){
-          for(let j=0 ; j<CARD_NUMBER.length ; j++){
-            cardlist[count].value[0] = CARD_TYPE[i]
-            cardlist[count].value[1] = CARD_NUMBER[j]
-            cardlist[count].isFaceDown = CARD_FACEDOWN[random(CARD_FACEDOWN.length)]
-            count = count+1
-          }
-        }*/
-
-        
-
-        
-
 
         function htmlToElem(html) {
             let temp = document.createElement('template');
@@ -164,65 +145,61 @@
             temp.innerHTML = html;
             return temp.content.firstChild;
         }
-        
-        var remove;
+
 
         function renderCardList() {
-            // TODO: define cardZoneElm here
-            
-            
-            /*const check=[]*/
-            const cardZoneElm = document.getElementsByClassName('card-zone');
-            if(remove == 1){
-              cardZoneElm.remove('card-zone');  
+
+            let CARD_LIST = []
+
+            for (let i = 0; i < CARD_TYPE.length; i++) {
+                for (let j = 0; j < CARD_NUMBER.length; j++) {
+                    CARD_LIST.push([CARD_TYPE[i], CARD_NUMBER[j], CARD_STATUS[random(CARD_STATUS.length)]])
+                }
             }
             
-            // before append any DOM(s), you need to clear all children of cardZoneElm
-            for (var idx=0; idx < 52; idx++) {
+            console.log("List" + CARD_LIST)
+            // define cardZoneElm here
+            let cardZoneElm = document.querySelector(".card-zone");
 
-                // TODO:
-                // if isFaceDown is true, create a card component with 'face-down' class
-                if(CARD_FACEDOWN[random(CARD_FACEDOWN.length)] === true){
-                   cardElm = htmlToElem(      
-                    '<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>'
-                )
-                }else{
+            // clear all children of cardZoneElm
+            cardZoneElm.innerHTML = "";
 
-                  let type = CARD_TYPE[random(CARD_TYPE.length)]
-                  let num = CARD_NUMBER[random(CARD_NUMBER.length)]
+            /*const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
+            console.log("Shuffle" + shuffleArray(CARD_LIST));*/
 
-                  /*check.push(type + num)
-                  console.log(check[29])*/
 
-                  if(type  == '♦'|| type == '♥'){
+            for (var idx = 0; idx < CARD_LIST.length; idx++) {
+                let value = CARD_LIST[idx][0];
+                let number = CARD_LIST[idx][1];
+                let isFaceDown = CARD_LIST[idx][2];
+
+                let cardElm;
+                if (!isFaceDown) {
+                    cardElm = htmlToElem(
+                        `<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>`
+                    );
+                } else {
+                  if(value == '♦'|| value == '♥'){
                         cardElm = htmlToElem(      
-                        `<div class="card"> <div class="red card-title"> ${type} </div> <div class="red card-body"> ${num} </div></div>`
+                        `<div class="card"> <div class="red card-title"> ${value} </div> <div class="red card-body"> ${number} </div></div>`
                     )
                     }
                     else{
                         cardElm = htmlToElem(      
-                        `<div class="card"> <div class="card-title"> ${type} </div> <div class="card-body"> ${num} </div></div>`
+                        `<div class="card"> <div class="card-title"> ${value} </div> <div class="card-body"> ${number} </div></div>`
                     )
                     
                     }
+                   
                 }
-                
-                cardZoneElm[0].append(cardElm)
+                cardZoneElm.append(cardElm);
             }
-
-            remove = 1;
         }
 
-
-        function my_code(){
-        alert(" Alert inside my_code function");
-        }
-
-        window.onload=my_code();
-       
 
 </script>
 
+<body onload="renderCardList()">
 <div class="board">
     <div class="board-content">
 
@@ -285,4 +262,5 @@
 
   </div>
 
+</body>
 </html>
