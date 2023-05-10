@@ -83,7 +83,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: start;
-            align-content: flex-start;
+            align-content: space-evenly;
         }
 
         .card{
@@ -133,7 +133,7 @@
         
         var CARD_TYPE = ['♣', '♦', '♥', '♠']
         var CARD_NUMBER = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-        var CARD_STATUS = [true, false]
+        var CARD_STATUS = [true , false]
 
         function random(max) {
             return parseInt(Math.random() * max) % max
@@ -164,8 +164,8 @@
             // clear all children of cardZoneElm
             cardZoneElm.innerHTML = "";
 
-            /*const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
-            console.log("Shuffle" + shuffleArray(CARD_LIST));*/
+            const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
+            console.log("Shuffle" + shuffleArray(CARD_LIST));
 
 
             for (var idx = 0; idx < CARD_LIST.length; idx++) {
@@ -174,7 +174,7 @@
                 let isFaceDown = CARD_LIST[idx][2];
 
                 let cardElm;
-                if (!isFaceDown) {
+                if (isFaceDown===true) {
                     cardElm = htmlToElem(
                         `<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>`
                     );
