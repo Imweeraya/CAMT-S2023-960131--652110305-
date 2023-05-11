@@ -133,7 +133,7 @@
         
         var CARD_TYPE = ['♣', '♦', '♥', '♠']
         var CARD_NUMBER = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-        var CARD_STATUS = [true , false ,true ,true,true,true,true,true]
+        var CARD_STATUS = [false , true]
 
         function random(max) {
             return parseInt(Math.random() * max) % max
@@ -147,17 +147,28 @@
         }
 
         var CARD_LIST = []
+        var newgame = 0
+
+        function new_game(){
+            newgame = 1
+            renderCardList()
+        }
 
         function renderCardList() {
+            console.log(newgame)
+
+            
 
             CARD_LIST = []
 
-            for (let i = 0; i < CARD_TYPE.length; i++) {
-                for (let j = 0; j < CARD_NUMBER.length; j++) {
-                    CARD_LIST.push([CARD_TYPE[i], CARD_NUMBER[j], CARD_STATUS[random(CARD_STATUS.length)]])
+            for (let typeidx = 0; typeidx < CARD_TYPE.length; typeidx++) {
+                for (let numidx = 0; numidx < CARD_NUMBER.length; numidx++) {
+                    CARD_LIST.push([CARD_TYPE[typeidx], CARD_NUMBER[numidx], CARD_STATUS[random(CARD_STATUS.length)],typeidx+'_'+numidx])
+                    
                 }
             }
             
+
             //console.log("List" + CARD_LIST)
             // define cardZoneElm here
             let cardZoneElm = document.querySelector(".card-zone");
@@ -168,13 +179,21 @@
             /*const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());*/
             //console.log("Shuffle" + shuffleArray(CARD_LIST));
 
-            shuffle()
+           if(newgame == 1){
+                shuffle()
+                newgame=0
+            }
+            
+
 
 
             for (var idx = 0; idx < CARD_LIST.length; idx++) {
-                let value = CARD_LIST[idx][0];
+                
+                let type = CARD_LIST[idx][0];
                 let number = CARD_LIST[idx][1];
                 let isFaceDown = CARD_LIST[idx][2];
+                let id = CARD_LIST[idx][3];
+                console.log(id)
 
                 let cardElm;
                 if (isFaceDown===true) {
@@ -182,19 +201,43 @@
                         `<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>`
                     );
                 } else {
-                  if(value == '♦'|| value == '♥'){
+                  if(type == '♦'|| type == '♥'){
                         cardElm = htmlToElem(      
-                        `<div class="card"> <div class="red card-title"> ${value} </div> <div class="red card-body"> ${number} </div></div>`
+                        `<div class="card"> <div class="red card-title"> ${type} </div> <div class="red card-body"> ${number} </div></div>`
                     )
                     }
                     else{
                         cardElm = htmlToElem(      
-                        `<div class="card"> <div class="card-title"> ${value} </div> <div class="card-body"> ${number} </div></div>`
+                        `<div class="card"> <div class="card-title"> ${type} </div> <div class="card-body"> ${number} </div></div>`
                     )
                     
                     }
                    
                 }
+                
+                /*
+                cardElm.value = card
+                cardElm.addEventListener('click' , function(event){
+                    
+                    var currentCardvalue = event.currentTarget.value
+                    if(currentCardvalue.isFaceDown === true){
+
+                        for(var cardIdx=0; cardIdx < CARD_LIST.length; cardIdx++){
+                            if(CARD_LIST[cardIdx][3] === currentCardvalue[cardIdx][3]){
+                                CARD_LIST[cardIdx][2] = false
+                            }
+                        }
+                        renderCardList()
+
+                        setTimeout(function(){
+                            for(var cardIdx=0; cardIdx < CARD_LIST.length; cardIdx++){
+                                CARD_LIST[cardIdx][2] = true
+                            }
+                            renderCardList()
+                        }.blind(this),2000)
+                    }
+                })*/
+
                 cardZoneElm.append(cardElm);
             }
         }
@@ -210,9 +253,15 @@
 
 
 
+
+
+        
+
+
+
 </script>
 
-<body onload="renderCardList()">
+<body onload="new_game()">
 <div class="board">
     <div class="board-content">
 
@@ -270,7 +319,7 @@
 
 
     <div class="footer">
-        <button class="new-game-button" onclick="renderCardList()" >New Game</button>
+        <button class="new-game-button" onclick="new_game()" >New Game</button>
     </div>
 
   </div>
