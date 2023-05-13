@@ -80,16 +80,28 @@
 </body>
 
 <script>
-    let map=[
+    let map=[  // 0=wall , 1=space , 2=kitten
     [1,0,1,0],
     [1,1,1,1],
     [1,0,1,0],
     [1,0,1,1]
     ]
 
+
     let maze = document.getElementById("maze-container");
     let kitten = document.getElementById("kitten");
     let house = document.getElementById("house");
+
+    function setKittenPositin(x,y){
+        kitten.style.top = x + "px";
+        kitten.style.left = y + "px";
+    }
+
+    function setHousenPositin(x,y){
+        house.style.bottom = x + "px";
+        house.style.right = y + "px";
+    }
+
 
     function createMaze(){
         for(let i=0 ; i < map.length; i++){
@@ -103,12 +115,45 @@
                 if(map[i][j] == 0){
                     cell.classList.add("wall");
                 }
+
+                if(i == 0 && j == 0){
+                    map[i][j] = 2; //กำหนดตำแหน่งแมวเป็น 2 คือจุด 0 0
+                }
                 row.appendChild(cell); //ให้ div cell อยู่ใน div row
                 
             }
             maze.appendChild(row); //ให้ div row อยู่ใน div maze
         }
+
+        setKittenPositin(0,0);
+        setHousePositin(0,0);
+
     }
+
+
+    function getKittenPosition(){
+        let position = [-1,-1]; //กำหนดไว้ชั่วคราว
+        for(let i=0 ; i<map.length ; i++){
+            for(let j=0 ; j<map[i].length ; j++){
+                if(map[i][j]==2){
+                    position[0] = i;
+                    position[1] = j;
+                }
+            }
+        }
+
+        console.log(position);
+        return position;
+    }
+
+    document.addEventListener("keydown",
+    function (e){
+        let kitten = document.getElementById("kitten");
+        let house = document.getElementById("house");
+    }
+    )
+
+
 </script>
 
 </html>
