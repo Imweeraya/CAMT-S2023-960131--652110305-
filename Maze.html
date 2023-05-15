@@ -36,7 +36,6 @@
         display: flex;
         flex-direction: column;
         width: max-content;
-        border-radius: 5%;
     }
 
     .row{
@@ -44,10 +43,10 @@
     }
 
     .cell{
-        width: 50px;
-        height: 50px;
-        border: 1px solid rgb(255, 255, 255);
-        background-color: rgb(255, 255, 255);
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgb(255, 192, 227);
+        background-color: rgb(255, 192, 227);
     }
 
     .wall{
@@ -57,22 +56,26 @@
 
     #kitten{
         position: absolute;
-        top:0;
-        left:0;
+        /*top:0;
+        left:0;*/
+        bottom: 0;
+        left:40px;
     }
 
     #house{
         position: absolute;
-        right:0;
-        bottom:0;
+        /*right:0;
+        bottom:0;*/
+        right:40px;
+        top: 0;
     }
 </style>
 
 <body onload="createMaze()">
     <h1> Kitten Maze</h1>
     <div id="maze-container">
-        <img src="https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/37-2.thumb128.png" id="kitten" alt="kitten" width="50px" height="50px">
-        <img src="https://static.vecteezy.com/system/resources/previews/022/495/858/original/cat-house-clipart-free-png.png" id="house" alt="house" width="50px" height="50px">
+        <img src="https://storage.googleapis.com/sticker-prod/sX90U4BNjjsjvGRuqTnk/37-2.thumb128.png" id="kitten" alt="kitten" width="40px" height="40px">
+        <img src="https://cdn-icons-png.flaticon.com/512/3048/3048222.png" id="house" alt="house" width="40px" height="40px">
     </div>
 
 
@@ -81,10 +84,24 @@
 
 <script>
     let map=[  // 0=wall , 1=space , 2=kitten
-    [1,0,1,0],
-    [1,1,1,1],
-    [1,0,1,0],
-    [1,0,1,1]
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0],
+    [0,1,0,1,0,1,1,1,0,1,1,1,1,0,1,1,1,0],
+    [0,1,1,1,1,1,0,1,0,1,1,0,1,0,1,1,1,0],
+    [0,1,0,1,1,1,0,1,0,1,1,0,1,0,1,0,0,0],
+    [0,1,0,0,0,0,0,1,1,1,1,0,1,1,1,0,1,0],
+    [0,1,0,1,1,1,1,1,0,0,1,0,0,0,0,0,1,0],
+    [0,1,0,1,0,1,0,1,1,0,1,1,1,1,1,1,1,0],
+    [0,1,1,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0],
+    [0,1,0,1,0,1,1,1,0,1,1,1,1,0,1,0,1,0],
+    [0,0,0,0,0,0,1,1,0,1,0,0,1,1,1,0,1,0],
+    [0,0,1,1,1,1,1,1,0,1,1,1,1,0,1,1,1,0],
+    [0,0,1,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0],
+    [0,0,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,0],
+    [0,0,1,0,1,0,1,0,0,1,0,0,0,0,0,0,1,0],
+    [0,1,1,1,1,0,1,0,1,1,1,0,0,1,1,0,1,0],
+    [0,1,1,1,0,0,1,0,1,0,1,1,0,0,1,1,1,0],
+    [0,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0],
+    [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     ]
 
 
@@ -108,9 +125,21 @@
             let row = document.createElement("div"); //สร้าง div แต่ละ row (0-3): <div></div>
             row.classList.add("row"); //ใส่ชื่อ class row  : <div class="row"></div>
 
-            for(let j=0 ; j<4 ;j++){
+            for(let j=0 ; j< map[i].length ;j++){
                 let cell = document.createElement("div");
                 cell.classList.add("cell"); 
+
+                /*
+                    <div class="row">
+
+                        <div class="wall cell" ></div>
+                        <div class="cell" ></div>
+                        <div class="cell" ></div>
+                        <div class="cell" ></div>
+                    
+                    </div>
+                
+                */
 
                 if(map[i][j] == 0){
                     cell.classList.add("wall");
@@ -125,8 +154,8 @@
             maze.appendChild(row); //ให้ div row อยู่ใน div maze
         }
 
-        setKittenPositin(0,0);
-        setHousePositin(0,0);
+        /*setKittenPositin(0,0);
+        setHousePositin(0,0);*/
 
     }
 
